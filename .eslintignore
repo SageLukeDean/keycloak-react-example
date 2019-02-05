@@ -1,0 +1,5 @@
+# common
+__snapshots__/
+node_modules/
+coverage/
+dist/

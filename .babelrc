@@ -1,0 +1,16 @@
+{
+  "presets": [
+    ["@babel/env", { "targets": "defaults", "useBuiltIns": "entry" }],
+    "@babel/react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"],
+      "retainLines": true
+    }
+  }
+}
