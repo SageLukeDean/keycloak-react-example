@@ -35,10 +35,16 @@ const keycloakInitConfig = {
 // right here instead:
 export function _getAuthConfig() {
   return {
-    url: 'http://localhost:8080/auth',
-    realm: 'my-realm',
-    clientId: 'my-client',
+    url: 'http://10.2.22.83:8080/auth',
+    realm: 'paya-qa',
+    clientId: 'jerry-client',
   };
+  // for working locally, it'd be more like
+  // return {
+  //  url: 'http://localhost:8080/auth',
+  //  realm:  'my-realm',
+  //  clientId: 'my-client',
+  // }
 }
 
 // Disabling no-param-reassign here because assigning the callbacks this way is
