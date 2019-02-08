@@ -1,14 +1,20 @@
 import Logger from 'services/logger';
 import { handleActions } from 'redux-actions';
 import { all, call, select, takeLatest } from 'redux-saga/effects';
-import { requestAuth as authorizeAction, receiveKeycloak } from './actions';
+import {
+  receiveKeycloak,
+  requestAuth as authorizeAction,
+  requestLogout as logoutAction,
+} from './actions';
 import { selectKeycloak } from './selectors';
 import initializeKeycloak from './keycloakWrapper';
+import logout from './logout';
 
 const { log } = Logger(module.id);
 
 // action creators
 export const requestAuth = authorizeAction;
+export const requestLogout = logoutAction;
 
 // reducers
 export const reducers = handleActions(
@@ -40,6 +46,7 @@ export function* _getAuth() {
 
 export function* _watch() {
   yield takeLatest(requestAuth, _getAuth);
+  yield takeLatest(requestLogout, logout);
 }
 
 export function* sagas() {
