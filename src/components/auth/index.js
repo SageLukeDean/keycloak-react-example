@@ -5,10 +5,6 @@ import Auth from './component';
 
 // const { log } = Logger(module.id);
 
-export const mapStateToProps = state => ({
-  ...state.auth,
-});
-
 export const mapDispatchToProps = dispatch => ({
   authorize() {
     dispatch(authorizeAction());
@@ -16,6 +12,6 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  mapStateToProps,
+  null, // mapStateToProps,
   mapDispatchToProps
 )(Auth);
